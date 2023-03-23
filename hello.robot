@@ -11,7 +11,7 @@ Found data from google with Keyword robot
 
 *** Keywords ***
 เปิด browser เพื่อเข้าใช้งาน google.com
-    Open Browser    https://efiling.rd.go.th/rd-cms/    browser=gc
+    Open Browser    https://www.google.com/    browser=gc
     ...    options=add_experimental_option("detach", True)
     Maximize Browser Window
 
@@ -22,3 +22,4 @@ Found data from google with Keyword robot
 
 ต้องเจอข้อมูลของ robot
     Wait Until Page Contains    robot
+    Wait Until Element Contains    id:result-stats    About
