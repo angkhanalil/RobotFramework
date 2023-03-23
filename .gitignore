@@ -1,8 +1,14 @@
-*.html
-*.png
-*.xml
+
 .png 
 .html
 .xml
 .exe
 .zip
+html
+xml
+.html
+html 
+
+*.html
+*.png
+*.xml
