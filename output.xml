@@ -1,44 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.7 on win32)" generated="20230323 15:26:33.493" rpa="false" schemaversion="3">
-<suite id="s1" name="Hello" source="F:\2023\Training\RobotFramework\hello.robot">
+<robot generator="Robot 6.0.2 (Python 3.9.7 on win32)" generated="20230324 10:00:50.176" rpa="false" schemaversion="3">
+<suite id="s1" name="Homework1" source="F:\2023\Training\RobotFramework\homework1.robot">
 <test id="s1-t1" name="Found data from google with Keyword robot" line="12">
-<kw name="เปิด browser เพื่อเข้าใช้งาน google.com">
+<kw name="เปิด browser เพื่อเข้าใช้งาน">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${MY_URL}</arg>
 <arg>browser=${MY_BROWSER}</arg>
 <arg>options=add_experimental_option("detach", True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230323 15:26:33.797" level="INFO">Opening browser 'edge' to base url 'https://www.google.com/'.</msg>
-<msg timestamp="20230323 15:26:33.836" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20230323 15:26:33.836" level="FAIL">WebDriverException: Message: 'msedgedriver' executable needs to be in PATH. Please download from https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
-</msg>
-<status status="FAIL" starttime="20230323 15:26:33.796" endtime="20230323 15:26:33.875"/>
+<msg timestamp="20230324 10:00:50.463" level="INFO">Opening browser 'gc' to base url 'http://nervgh.github.io/pages/angular-file-upload/examples/simple/'.</msg>
+<status status="PASS" starttime="20230324 10:00:50.461" endtime="20230324 10:00:54.012"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20230323 15:26:33.876" endtime="20230323 15:26:33.876"/>
+<status status="PASS" starttime="20230324 10:00:54.012" endtime="20230324 10:00:54.140"/>
 </kw>
-<status status="FAIL" starttime="20230323 15:26:33.796" endtime="20230323 15:26:33.876"/>
+<status status="PASS" starttime="20230324 10:00:50.461" endtime="20230324 10:00:54.140"/>
 </kw>
-<kw name="ทำการค้นหาด้วยคำว่า robot">
-<status status="NOT RUN" starttime="20230323 15:26:33.877" endtime="20230323 15:26:33.877"/>
+<kw name="Choose 3 files">
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://div[1]/input[2]</arg>
+<arg>F:\\2023\\Training\\RobotFramework/uploads/1.txt</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.142" level="INFO">Sending F:\2023\Training\RobotFramework\uploads\1.txt to browser.</msg>
+<status status="PASS" starttime="20230324 10:00:54.141" endtime="20230324 10:00:54.203"/>
 </kw>
-<kw name="ต้องเจอข้อมูลของ robot">
-<status status="NOT RUN" starttime="20230323 15:26:33.877" endtime="20230323 15:26:33.877"/>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://div[1]/input[2]</arg>
+<arg>F:\\2023\\Training\\RobotFramework/uploads/2.txt</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.203" level="INFO">Sending F:\2023\Training\RobotFramework\uploads\2.txt to browser.</msg>
+<status status="PASS" starttime="20230324 10:00:54.203" endtime="20230324 10:00:54.246"/>
 </kw>
-<status status="FAIL" starttime="20230323 15:26:33.795" endtime="20230323 15:26:33.878">WebDriverException: Message: 'msedgedriver' executable needs to be in PATH. Please download from https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
-</status>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://div[1]/input[2]</arg>
+<arg>F:\\2023\\Training\\RobotFramework/uploads/3.txt</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.247" level="INFO">Sending F:\2023\Training\RobotFramework\uploads\3.txt to browser.</msg>
+<status status="PASS" starttime="20230324 10:00:54.246" endtime="20230324 10:00:54.276"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:54.141" endtime="20230324 10:00:54.277"/>
+</kw>
+<kw name="Validate data after choosed 3 files">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${data}</var>
+<arg>xpath://*[@id="ng-app"]/body/div/div[2]/div[2]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.304" level="INFO">${data} = Queue length: 3</msg>
+<status status="PASS" starttime="20230324 10:00:54.278" endtime="20230324 10:00:54.304"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230324 10:00:54.305" endtime="20230324 10:00:54.305"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${word}</var>
+<arg>${data}</arg>
+<arg>${SPACE}</arg>
+<arg>2</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230324 10:00:54.306" level="INFO">${word} = ['Queue', 'length:', '3']</msg>
+<status status="PASS" starttime="20230324 10:00:54.305" endtime="20230324 10:00:54.306"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${word[2]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230324 10:00:54.306" endtime="20230324 10:00:54.307"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>3</arg>
+<arg>${word[2]}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230324 10:00:54.307" endtime="20230324 10:00:54.308"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:54.277" endtime="20230324 10:00:54.308"/>
+</kw>
+<kw name="Upload and Validate progress of first file">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[1]/td[5]/button[1]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230324 10:00:54.309" endtime="20230324 10:00:54.350"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[1]/td[5]/button[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.351" level="INFO">Clicking element 'xpath://table/tbody/tr[1]/td[5]/button[1]'.</msg>
+<status status="PASS" starttime="20230324 10:00:54.350" endtime="20230324 10:00:54.399"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@style="width: 33%;"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230324 10:00:54.399" endtime="20230324 10:00:54.667"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:54.308" endtime="20230324 10:00:54.667"/>
+</kw>
+<kw name="Upload and Validate progress of second file">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[2]/td[5]/button[1]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230324 10:00:54.669" endtime="20230324 10:00:54.710"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[2]/td[5]/button[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 10:00:54.712" level="INFO">Clicking element 'xpath://table/tbody/tr[2]/td[5]/button[1]'.</msg>
+<status status="PASS" starttime="20230324 10:00:54.711" endtime="20230324 10:00:54.754"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@style="width: 67%;"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230324 10:00:54.754" endtime="20230324 10:00:55.039"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:54.668" endtime="20230324 10:00:55.039"/>
+</kw>
+<kw name="Upload and Validate progress of third file">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[3]/td[5]/button[1]</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230324 10:00:55.041" endtime="20230324 10:00:55.110"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://table/tbody/tr[3]/td[5]/button[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 10:00:55.111" level="INFO">Clicking element 'xpath://table/tbody/tr[3]/td[5]/button[1]'.</msg>
+<status status="PASS" starttime="20230324 10:00:55.110" endtime="20230324 10:00:55.186"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@style="width: 100%;"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230324 10:00:55.186" endtime="20230324 10:00:55.462"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:55.041" endtime="20230324 10:00:55.462"/>
+</kw>
+<status status="PASS" starttime="20230324 10:00:50.460" endtime="20230324 10:00:55.464"/>
 </test>
-<status status="FAIL" starttime="20230323 15:26:33.500" endtime="20230323 15:26:33.881"/>
+<status status="PASS" starttime="20230324 10:00:50.183" endtime="20230324 10:00:55.470"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Hello">Hello</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Homework1">Homework1</stat>
 </suite>
 </statistics>
 <errors>
