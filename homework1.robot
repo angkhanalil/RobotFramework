@@ -14,9 +14,14 @@ Found data from google with Keyword robot
     #เปิด Dialog upload file
     Choose 3 files
     Validate data after choosed 3 files
-    Upload and Validate progress of first file
-    Upload and Validate progress of second file
-    Upload and Validate progress of third file
+    # Upload and Validate progress of first file
+    # Upload and Validate progress of second file
+    # Upload and Validate progress of third file
+
+    #[Use Arguments]
+    Upload and Validate progress    1    33
+    Upload and Validate progress    2    67
+    Upload and Validate progress    3    100
 
 
 *** Keywords ***
@@ -46,10 +51,26 @@ Validate data after choosed 3 files
     Log To Console    \n${word[2]}
     Should Be Equal    3    ${word[2]}
 
+Upload and Validate progress
+    [Arguments]    ${row_no}    ${percent_of_progress}
+    Wait Until Element Is Enabled    xpath://table/tbody/tr[${row_no}]/td[5]/button[1]
+    #check error is not visible
+    Wait Until Element Is Not Visible    xpath://table/tbody/tr[${row_no}]/td[4]/span[3]
+    #click upload
+    Click Element    xpath://table/tbody/tr[${row_no}]/td[5]/button[1]
+    #check error is    visible after click upload
+    Wait Until Element Is Visible    xpath://div[@style="width: ${percent_of_progress}%;"]
+    Wait Until Element Is Visible    xpath://table/tbody/tr[${row_no}]/td[4]/span[3]
+
 Upload and Validate progress of first file
     Wait Until Element Is Enabled    xpath://table/tbody/tr[1]/td[5]/button[1]
+    #check error is not visible
+    Wait Until Element Is Not Visible    xpath://table/tbody/tr[1]/td[4]/span[3]
+    #click upload
     Click Element    xpath://table/tbody/tr[1]/td[5]/button[1]
+    #check error is    visible after click upload
     Wait Until Element Is Visible    xpath://div[@style="width: 33%;"]
+    Wait Until Element Is Visible    xpath://table/tbody/tr[1]/td[4]/span[3]
 
 Upload and Validate progress of second file
     Wait Until Element Is Enabled    xpath://table/tbody/tr[2]/td[5]/button[1]
